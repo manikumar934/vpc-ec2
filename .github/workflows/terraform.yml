@@ -46,8 +46,11 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Clean Terraform Cache
+        run: rm -rf .terraform .terraform.lock.hcl
+
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -reconfigure
 
       - name: Terraform Plan
         if: github.event.inputs.action == 'plan'
