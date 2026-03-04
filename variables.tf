@@ -7,5 +7,5 @@ variable "environment" {
 }
 
 variable "instance_type" {
-  default = "t3a.micro"
+  default = "t2.micro"
 }

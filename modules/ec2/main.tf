@@ -38,9 +38,8 @@ resource "aws_instance" "this" {
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
 
-  metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "optional"
+  credit_specification {
+    cpu_credits = "standard"
   }
 
   tags = {
