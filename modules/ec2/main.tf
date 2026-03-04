@@ -37,7 +37,11 @@ resource "aws_instance" "this" {
   instance_type          = var.instance_type
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
-  tenancy                = "default"
+
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "optional"
+  }
 
   tags = {
     Name        = "${var.environment}-ec2"
