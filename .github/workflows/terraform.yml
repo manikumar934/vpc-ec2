@@ -46,6 +46,11 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Verify AWS Access
+        run: |
+          aws sts get-caller-identity
+          aws s3 ls s3://mani-state-2026/ || echo "Bucket access failed"
+
       - name: Clean Terraform Cache
         run: rm -rf .terraform .terraform.lock.hcl
 
