@@ -31,7 +31,7 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
-      ROLE_TO_ASSUME: arn:aws:iam::427814062472:role/github-terraform-dev-role
+      ROLE_TO_ASSUME: arn:aws:iam::056026787582:role/oidc
 
     steps:
       - name: Checkout Code
