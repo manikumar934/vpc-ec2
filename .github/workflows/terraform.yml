@@ -3,6 +3,14 @@ name: Terraform Dev Deployment (OIDC)
 on:
   workflow_dispatch:
     inputs:
+      service:
+        description: 'Choose Service'
+        required: true
+        type: choice
+        options:
+          - vpc
+          - ec2
+          - all
       action:
         description: 'Choose Terraform Action'
         required: true
